@@ -1,13 +1,11 @@
 $(document).ready(function () { 
     
     // Array of greetings to randomize
-    const $greetings = {
-        time: ["Good Morning!", "Good Afternoon", "Good Night"]
-    }
+    const timeofDayGreetings = ["Good Morning!", "Good Afternoon", "Good Night"]
 
     // Time of the day
-    const $test = new Date();
-    const $hour = $test.getHours();
+    const test = new Date();
+    const hour = test.getHours();
 
     // Post submit animation
     const $form = $('form').on('submit', function (e) {
@@ -19,16 +17,16 @@ $(document).ready(function () {
 
         const $username = $('input[type="text"]').val();
 
-        if ($hour < 12) {
-            $submitFill.html(`<h2 class="greeting">${$greetings.time[0]} ${$username}</h2>`)
+        if (hour < 12) {
+            $submitFill.html(`<h2 class="greeting">${timeofDayGreetings[0]} ${$username}</h2>`)
         } 
         
-        else if ($hour >= 12 && $hour < 17) {
-            $submitFill.html(`<h2 class="greeting">${$greetings.time[1]} ${$username}</h2>`)
+        else if (hour >= 12 && hour < 17) {
+            $submitFill.html(`<h2 class="greeting">${timeofDayGreetings[1]} ${$username}</h2>`)
         } 
 
-        else if ($hour >= 17 && $hour < 24) {
-            $submitFill.html(`<h2 class="greeting">${$greetings.time[2]} ${$username}</h2>`)
+        else if (hour >= 17 && hour < 24) {
+            $submitFill.html(`<h2 class="greeting">${timeofDayGreetings[2]} ${$username}</h2>`)
         }
     })
 })
